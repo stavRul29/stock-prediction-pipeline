@@ -752,9 +752,9 @@ def qc_daily_incremental(engine, ticker, days_back=1):
 """
 
 def run_ingestion_pipeline():
-    qc_hourly = qc_hourly_incremental(engine, TICKER, days_back=1)
+    qc_hourly = qc_hourly_incremental(engine, 'TCS.NS', days_back=1)
 
-    qc_daily = qc_daily_incremental(engine, TICKER, days_back=1)
+    qc_daily = qc_daily_incremental(engine, 'TCS.NS', days_back=1)
 
 """###
 ### Quality Checks Actions
