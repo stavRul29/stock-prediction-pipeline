@@ -316,7 +316,7 @@ def fetch_latest_hourly(days_back: int = 700):
 
 # ===================== QUICK MANUAL TEST =====================
 
-if __name__ == "__main__":
+#if __name__ == "__main__":
 
     # 1) Ensure tables exist in your cloud Postgres
     # Commented this part as tables are created one time. Uncomment if executing this for the first time
