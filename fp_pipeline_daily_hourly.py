@@ -736,31 +736,6 @@ def qc_daily_incremental(engine, ticker, days_back=1):
     return df
 
 """###
-### Executing Quality Check steps for Historic Load
-"""
-
-# Commenting this part as historic QC was needed only once, but can be reused later if required
-
-# qc_hourly = qc_hourly_full(engine, 'TCS.NS')
-
-# Commenting this part as historic QC was needed only once, but can be reused later if required
-
-# qc_daily = qc_daily_full(engine, 'TCS.NS')
-
-"""###
-### Executing Quality Check steps for Incremental Load
-"""
-
-def run_ingestion_pipeline():
-    qc_hourly = qc_hourly_incremental(engine, 'TCS.NS', days_back=1)
-
-    qc_daily = qc_daily_incremental(engine, 'TCS.NS', days_back=1)
-
-    return qc_hourly, qc_daily
-
-run_ingestion_pipeline()
-
-"""###
 ### Quality Checks Actions
 """
 
@@ -895,8 +870,36 @@ def apply_daily_qc_actions(engine, qc_df):
         else:
           print("✅ No duplicate daily records found")
 
-# Calling action function
+"""###
+### Executing Quality Check steps for Historic Load
+"""
 
-apply_hourly_qc_actions(engine, qc_hourly)
-print("\n\n")
-apply_daily_qc_actions(engine, qc_daily)
+# Commenting this part as historic QC was needed only once, but can be reused later if required
+
+# qc_hourly = qc_hourly_full(engine, 'TCS.NS')
+
+# Commenting this part as historic QC was needed only once, but can be reused later if required
+
+# qc_daily = qc_daily_full(engine, 'TCS.NS')
+
+"""###
+### Executing Quality Check steps for Incremental Load
+"""
+
+def run_ingestion_pipeline():
+    qc_hourly = qc_hourly_incremental(engine, 'TCS.NS', days_back=1)
+    # Calling action function
+    apply_hourly_qc_actions(engine, qc_hourly)
+
+    qc_daily = qc_daily_incremental(engine, 'TCS.NS', days_back=1)
+    print("\n\n")
+    # Calling action function
+    apply_daily_qc_actions(engine, qc_daily)
+
+run_ingestion_pipeline()
+
+
+
+
+
+
