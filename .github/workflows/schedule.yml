@@ -27,6 +27,6 @@ jobs:
         env:
           DATABASE_URL: ${{ secrets.NEON_DB_URL }}
         run: |
-          python FP_Pipeline_Daily_Hourly.ipynb ingest
+          python fp_pipeline_daily_hourly.py ingest
 
       
