@@ -756,6 +756,8 @@ def run_ingestion_pipeline():
 
     qc_daily = qc_daily_incremental(engine, 'TCS.NS', days_back=1)
 
+    return qc_hourly, qc_daily
+
 run_ingestion_pipeline()
 
 """###
