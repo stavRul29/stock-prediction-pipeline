@@ -756,6 +756,8 @@ def run_ingestion_pipeline():
 
     qc_daily = qc_daily_incremental(engine, 'TCS.NS', days_back=1)
 
+run_ingestion_pipeline()
+
 """###
 ### Quality Checks Actions
 """
